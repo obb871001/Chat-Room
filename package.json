@@ -1,21 +1,41 @@
 {
   "name": "911vn-chat",
   "version": "0.1.0",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.11.6",
+    "i18next": "^22.0.6",
+    "js-base64": "^3.7.3",
+    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.0.0",
+    "react-icons": "^4.10.1",
+    "react-redux": "^8.0.5",
+    "react-router": "^6.4.3",
+    "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "redux": "^4.2.0",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "cross-env REACT_APP_SECRET_TYPE=local REACT_APP_CHAT_TYPE=agent REACT_APP_SECRET_ENV=development  react-scripts start",
+    "startFromMember": "cross-env REACT_APP_SECRET_TYPE=local REACT_APP_CHAT_TYPE=member REACT_APP_SECRET_ENV=development  react-scripts start",
+    "build": "cross-env REACT_APP_SECRET_TYPE=sandbox REACT_APP_CHAT_TYPE=agent REACT_APP_SECRET_ENV=development react-scripts build",
+    "playerBuild": "cross-env REACT_APP_SECRET_TYPE=sandbox REACT_APP_CHAT_TYPE=member REACT_APP_SECRET_ENV=development react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "backDeploy": "npm run build && node backDeploy.js",
+    "playerDeploy": "npm run playerBuild && node playerDeploy.js",
+    "allDeploy": "npm run playerDeploy && npm run backDeploy"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +54,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "ssh2-sftp-client": "^9.1.0",
+    "tailwindcss": "^3.3.2"
   }
 }
