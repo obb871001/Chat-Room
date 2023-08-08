@@ -19,3 +19,13 @@ export const hiddenArrow = () => {
     type: "hiddenArrow",
   };
 };
+export const openChat = () => {
+  return {
+    type: "openChat",
+  };
+};
+export const closeChat = () => {
+  return {
+    type: "closeChat",
+  };
+};

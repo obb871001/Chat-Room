@@ -27,8 +27,7 @@ const ChatContent = () => {
   let [searchParams, setSearchParams] = UseMergeableSearchParams();
   const searchPlayerUid = searchParams.playerUid;
   const playerId = searchParams.playerId;
-
-  const endOfMessageRef = useRef(null);
+   const endOfMessageRef = useRef(null);
   const windowY = useRef(null);
 
   const dispatch = useDispatch();
@@ -82,12 +81,13 @@ const ChatContent = () => {
       })
       .finally(() => {});
   }, [searchPlayerUid, trigger]);
+
   useEffect(() => {
     const fetchHistoryFromAgent = () => {
       getHistoryFromAgent({ user_id: Number(searchPlayerUid) }).then((data) => {
         setMessageList(data.data.reverse());
       });
-    };
+      };
 
     fetchHistoryFromAgent();
 
@@ -96,7 +96,7 @@ const ChatContent = () => {
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, [searchPlayerUid]);
 
   const chatArray = useMemo(() => {
     if (messageList.length === 0) return [];
