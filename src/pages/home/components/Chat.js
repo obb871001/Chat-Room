@@ -4,7 +4,7 @@ import ChatContent from "./chatComponents/chatContent";
 import Footer from "./chatComponents/footer";
 import Header from "./chatComponents/header";
 
-const Chat = () => {
+const Chat = ({ isSidebarOpen, handleSidebarToggle }) => {
   const arrayStatus = useSelector((state) => state.isShowArrow);
   const chatTrigger = useSelector(state=>state.chatTrigger);
   
@@ -14,7 +14,10 @@ const Chat = () => {
         process.env.REACT_APP_CHAT_TYPE === "agent" ? "md:w-[850px] w-screen" : "w-full"
       } overflow-y-hidden h-full bg-cover bg-no-repeat chat-background relative py-[60px]`}
     >
-      <Header />
+      <Header 
+      isSidebarOpen={isSidebarOpen}
+      handleSidebarToggle={handleSidebarToggle} 
+      />
       <ChatContent />
       <Footer />
       {!arrayStatus && <Arrow />}
