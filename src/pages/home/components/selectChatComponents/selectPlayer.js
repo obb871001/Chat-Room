@@ -18,7 +18,7 @@ const SelectPlayer = ({ player, created, message, type, playerUid }) => {
       }`}
       onClick={() =>
        { setSearchParams({ playerUid: playerUid, playerId: player});
-       dispatch(openChat())
+        dispatch(openChat())
        }
       }
     >

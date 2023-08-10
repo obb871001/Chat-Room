@@ -74,9 +74,6 @@ const ChatContent = () => {
   useEffect(() => {
     getHistoryFromAgent({ user_id: Number(searchPlayerUid) })
       .then((data) => {
-        if (process.env.REACT_APP_CHAT_TYPE === "agent") {
-          setSearchParams({ playerId: data.data[0].user_name });
-        }
         setMessageList(data.data.reverse());
       })
       .finally(() => {});
