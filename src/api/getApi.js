@@ -2,13 +2,15 @@ import Cookies from "js-cookie";
 import { api, chatApi } from "./api";
 
 export const getHistoryFromAgent = ({ user_id } = {}) => {
+  let ouathCookieName = process.env.REACT_APP_CHAT_TYPE === "agent" ? "agentOuath" : "playerOuath";
   return chatApi.get("", {
     params: {
       // ouath:
       //   process.env.REACT_APP_CHAT_TYPE === "agent"
       //     ? "64be0a7d9811b"
       //     : "64ba3ae689985",
-      ouath: Cookies.get("ouath"),
+      // ouath: Cookies.get("ouath"),
+      ouath: Cookies.get(ouathCookieName),
       csId: process.env.REACT_APP_CHAT_TYPE === "agent" && Cookies.get("csId") || "1",
       // csId: Cookies.get("csId") || "1",
       // csId:1,
@@ -18,13 +20,15 @@ export const getHistoryFromAgent = ({ user_id } = {}) => {
 };
 
 export const getMemberList = ({ mem_id } = {}) => {
+  let ouathCookieName = process.env.REACT_APP_CHAT_TYPE === "agent" ? "agentOuath" : "playerOuath";
   return chatApi.get("/member", {
     params: {
       // ouath:
       //   process.env.REACT_APP_CHAT_TYPE === "agent"
       //     ? "64be0a7d9811b"
       //     : "64ba3ae689985",
-      ouath: Cookies.get("ouath"),
+      // ouath: Cookies.get("ouath"),
+      ouath: Cookies.get(ouathCookieName),
       mem_id: mem_id,
     },
   });

@@ -9,9 +9,14 @@ import { useLocation } from "react-router";
 const Home = () => {
   let [searchParams, setSearchParams] = UseMergeableSearchParams();
   const { oauth, csId = "" } = searchParams;
+  const ouathCookieName = process.env.REACT_APP_CHAT_TYPE === "agent" ? "agentOuath" : "playerOuath";
   useEffect(() => {
-    Cookies.set("ouath", oauth);
+    // Cookies.set("ouath", oauth);
+    Cookies.set(ouathCookieName, oauth);
     Cookies.set("csId", csId);
+    
+    console.log("最終使用的 ouath Cookie 名稱:", ouathCookieName);
+    console.log("ouath 的值:", oauth);
   }, [oauth, csId]);
 
   return (
