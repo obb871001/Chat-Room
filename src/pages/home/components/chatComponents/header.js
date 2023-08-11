@@ -12,9 +12,9 @@ const Header = () => {
   const controls = useAnimation(); // 使用 useAnimation 鉤子
 
   const handleBackClick = () => {
-    console.log("點擊了返回按鈕");
+    // console.log("點擊了返回按鈕");
     setIsSlide(false); // 設定滑動狀態為 false，讓 SelectChat 回復原位
-    console.log("滑動狀態已設定為 false");
+    // console.log("滑動狀態已設定為 false");
     controls.start({ x: "0%" }); // 設定動畫回到原位
   };
   

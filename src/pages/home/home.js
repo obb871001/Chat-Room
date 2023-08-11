@@ -15,8 +15,8 @@ const Home = () => {
     Cookies.set(ouathCookieName, oauth);
     Cookies.set("csId", csId);
     
-    console.log("最終使用的 ouath Cookie 名稱:", ouathCookieName);
-    console.log("ouath 的值:", oauth);
+    // console.log("最終使用的 ouath Cookie 名稱:", ouathCookieName);
+    // console.log("ouath 的值:", oauth);
   }, [oauth, csId]);
 
   return (

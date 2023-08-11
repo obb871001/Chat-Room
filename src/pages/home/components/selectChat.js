@@ -79,12 +79,12 @@ const SelectChat = () => {
     if (containerRef.current.offsetWidth === window.innerWidth) {
       setIsSlide(true); // 設定滑動狀態為 true
       controls.start({ x: "-100%" });
-      console.log("滑動狀態已設定為 true");
+      // console.log("滑動狀態已設定為 true");
     }
   };
 
   useEffect(() => {
-    console.log("isSlide 的值:", isSlide);
+    // console.log("isSlide 的值:", isSlide);
     if (isSlide) {
       controls.start({ x: "-100%" });
     } else {
