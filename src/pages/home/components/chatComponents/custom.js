@@ -21,7 +21,7 @@ const Custom = ({ content, player, createdTime, messageType }) => {
       </div>
       <section className="flex items-end">
         <LeftTriangle />
-        <section className="min-w-[120px] max-w-[70%] bg-white rounded-r-2xl rounded-t-2xl px-[10px] py-[5px] flex flex-col justify-between gap-[5px]">
+        <section className="min-w-[120px] max-w-[90%] bg-white rounded-r-2xl rounded-t-2xl px-[10px] py-[5px] flex flex-col justify-between gap-[5px]">
           <p className="mb-0 font-bold">{player}</p>
           <div className="flex justify-between items-end">
             {messageType === "text" ? (
