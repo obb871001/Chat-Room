@@ -23,7 +23,7 @@ const Home = () => {
     <section className="w-[1200px] h-screen md:h-[800px] border-0 rounded-xl shadow overflow-hidden flex flex-col">
       <TabBar />
       <section
-        className={`md:flex h-[calc( 100vh - 120px)] md:h-[775px] overflow-hidden`}
+        className={`md:flex md:h-[775px] h-screen overflow-hidden`}
       >
         {process.env.REACT_APP_CHAT_TYPE === "agent" && <SelectChat />}
         <Chat />
