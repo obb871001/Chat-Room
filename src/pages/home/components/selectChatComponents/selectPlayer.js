@@ -4,12 +4,13 @@ import { useDispatch } from "react-redux";
 import UseMergeableSearchParams from "../../../../hooks/useMegeableSearchParams";
 import { openChat } from "../../../../redux/action/action";
 
-const SelectPlayer = ({ player, created, message, from, type, playerUid }) => {
+const SelectPlayer = ({ player, created, message, from, image, type, playerUid }) => {
   let [searchParams, setSearchParams] = UseMergeableSearchParams();
   const searchPlayerUid = searchParams.playerUid;
 
   const dispatch = useDispatch();
-  const isMember = from === "member"; // 判斷from是否為 member
+  const isMember = from === "member"; // 判斷from內容是否為 member
+  const isImage = image === "image"; // 判斷image內容是否為 image
 
   return (
     <div
@@ -31,7 +32,7 @@ const SelectPlayer = ({ player, created, message, from, type, playerUid }) => {
           <p>{created}</p>
         </div>
         <div className="text-light-gray font-bold text-overflow max-w-[85%]">
-          {message}
+          {isImage ? "[image]" : message}
         </div>
       </div>
     </div>
