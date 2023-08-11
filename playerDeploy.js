@@ -7,7 +7,7 @@ const config = {
   port: 22,
   username: "ubuntu",
   privateKey: fs.readFileSync(
-    "/Users/gualin/Documents/Work/cityofwins",
+    "C:/Users/User/Documents/cityofwins.txt",
     "utf8"
   ),
 };
