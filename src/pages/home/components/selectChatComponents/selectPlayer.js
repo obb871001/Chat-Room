@@ -4,18 +4,18 @@ import { useDispatch } from "react-redux";
 import UseMergeableSearchParams from "../../../../hooks/useMegeableSearchParams";
 import { openChat } from "../../../../redux/action/action";
 
-const SelectPlayer = ({ player, created, message, type, playerUid }) => {
+const SelectPlayer = ({ player, created, message, from, type, playerUid }) => {
   let [searchParams, setSearchParams] = UseMergeableSearchParams();
   const searchPlayerUid = searchParams.playerUid;
 
   const dispatch = useDispatch();
-  
+  const isMember = from === "member"; // 判斷from是否為 member
 
   return (
     <div
       className={`h-[70px] px-[20px] py-[5px] flex items-center gap-[5px]  cursor-pointer bg-white hover:bg-select-tab ${
         searchPlayerUid == playerUid && "!bg-select-tab"
-      }`}
+      } ${isMember ? "!bg-[#fcf6bc]" : ""}`}
       onClick={() =>
        { setSearchParams({ playerUid: playerUid, playerId: player});
         dispatch(openChat())

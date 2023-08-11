@@ -128,6 +128,7 @@ const SelectChat = () => {
                   player={list.memId}
                   created={list.created_at}
                   message={list.message}
+                  from={list.from_type}
                   type={list.type}
                 />
               </motion.div>
