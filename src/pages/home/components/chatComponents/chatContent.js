@@ -140,6 +140,7 @@ const ChatContent = () => {
                 content={message.message}
                 createdTime={message.date}
                 messageType={message.type}
+                cs_name={message.user_name}
               />
             ) : (
               <Custom
