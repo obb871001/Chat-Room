@@ -10,7 +10,7 @@ const TabBar = () => {
         <TabCircle backgroundColor="#40ca53" />
       </section>
       <section className="text-sm font-bold text-tab-title">
-        911VN-超級聊天室 - (831)
+        911VN (831)
       </section>
       <section></section>
     </section>
