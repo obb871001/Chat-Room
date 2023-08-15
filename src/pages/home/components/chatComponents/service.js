@@ -8,9 +8,9 @@ const Service = ({ content, createdTime, messageType, cs_name }) => {
       <section className="flex items-end justify-end">
         <section className="min-w-[150px] max-w-[70%] bg-self-bg rounded-l-2xl rounded-t-2xl px-[10px] py-[5px]">
           <div className="flex flex-col justify-between items-start">
+          <span className="text-light-gray text-sm mb-1 block">{cs_name}</span>
             {messageType === "text" ? (
               <p className="mb-0 break-all">
-                <span className="text-light-gray text-sm mb-1 block">{cs_name}</span>
                 {content}
               </p>
             ) : (

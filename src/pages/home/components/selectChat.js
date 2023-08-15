@@ -131,6 +131,7 @@ const SelectChat = () => {
                   image={list.message_type}
                   from={list.from_type}
                   type={list.type}
+                  cs_name={list.user_name}
                 />
               </motion.div>
             );

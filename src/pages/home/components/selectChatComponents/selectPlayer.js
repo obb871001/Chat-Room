@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import UseMergeableSearchParams from "../../../../hooks/useMegeableSearchParams";
 import { openChat } from "../../../../redux/action/action";
 
-const SelectPlayer = ({ player, created, message, from, image, type, playerUid }) => {
+const SelectPlayer = ({ player, created, message, from, image, type, playerUid, cs_name }) => {
   let [searchParams, setSearchParams] = UseMergeableSearchParams();
   const searchPlayerUid = searchParams.playerUid;
 
@@ -32,6 +32,7 @@ const SelectPlayer = ({ player, created, message, from, image, type, playerUid }
           <p>{created}</p>
         </div>
         <div className="text-light-gray font-bold text-overflow max-w-[85%]">
+        <span className="text-light-gray text-sm mb-1 block">{cs_name}</span>
           {isImage ? "[image]" : message}
         </div>
       </div>
