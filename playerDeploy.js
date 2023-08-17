@@ -3,11 +3,11 @@ const fs = require("fs");
 const SftpClient = require("ssh2-sftp-client");
 
 const config = {
-  host: "52.192.47.46",
+  host: "3.0.203.235",//確認IP
   port: 22,
   username: "ubuntu",
   privateKey: fs.readFileSync(
-    "C:/Users/User/Documents/cityofwins.txt",
+    "C:/Users/User/Documents/smartocean_chat.txt",//通常只能抓ssh檔案 若不符須轉檔
     "utf8"
   ),
 };
@@ -15,7 +15,7 @@ const config = {
 const sftp = new SftpClient();
 
 const localPath = path.join(__dirname, "build");
-const remotePath = "/var/www/html/newback/public/chat";
+const remotePath = "/var/www/html/chat_server/public/chat";//與FTP路徑同
 
 async function deleteRemoteFiles(localPath, remotePath) {
   try {
@@ -37,7 +37,7 @@ async function deleteRemoteFiles(localPath, remotePath) {
   }
 }
 
-async function deleteStaticSubfolders(localPath, remotePath) {
+async function deleteStaticSubfolders(localPath, remotePath) {//要先刪掉現有檔案是因為怕css那些不斷重複蓋上 檔案會變很肥
   try {
     const files = fs.readdirSync(localPath, { withFileTypes: true });
     for (const file of files) {
