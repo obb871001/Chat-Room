@@ -14,7 +14,7 @@ const Service = ({ content, createdTime, messageType, cs_name }) => {
                 {content}
               </p>
             ) : (
-              <img src={`..${content}`} />
+              <img src={`${content}`} />
             )}
             <div className="text-light-gray text-xs mb-0 flex justify-end items-center gap-[3px] whitespace-nowrap w-full">
               <p className="text-light-gray text-xs mb-0 whitespace-pre">

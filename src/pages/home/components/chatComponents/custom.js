@@ -27,7 +27,7 @@ const Custom = ({ content, player, createdTime, messageType }) => {
             {messageType === "text" ? (
               <p className="mb-0 break-all">{content}</p>
             ) : (
-              <img src={`..${content}`} />
+              <img src={`${content}`} />
             )}
             <p className="text-light-gray text-xs mb-0 whitespace-pre">
               {transferToHour(createdTime)}
