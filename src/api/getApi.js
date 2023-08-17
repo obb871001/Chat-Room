@@ -12,6 +12,7 @@ export const getHistoryFromAgent = ({ user_id } = {}) => {
       // ouath: Cookies.get("ouath"),
       ouath: Cookies.get(ouathCookieName),
       csId: process.env.REACT_APP_CHAT_TYPE === "agent" && Cookies.get("csId") || "1",
+      
       // csId: Cookies.get("csId") || "1",
       // csId:1,
       user_id: process.env.REACT_APP_CHAT_TYPE === "agent" && user_id || "1",
@@ -30,6 +31,7 @@ export const getMemberList = ({ mem_id } = {}) => {
       // ouath: Cookies.get("ouath"),
       ouath: Cookies.get(ouathCookieName),
       mem_id: mem_id,
+      csId: process.env.REACT_APP_CHAT_TYPE === "agent" && Cookies.get("csId") || "1",
     },
   });
 };

@@ -1,7 +1,7 @@
 import { api, chatApi, chatApiWithoutHeader } from "./api";
 import Cookies from "js-cookie";
-
-export const actionBackSendMessage = ({ user_id, message, image } = {}) => {
+ 
+export const actionBackSendMessage = ({ user_id, message, image, mem_id } = {}) => {
   let ouathCookieName = process.env.REACT_APP_CHAT_TYPE === "agent" ? "agentOuath" : "playerOuath";
   return chatApi.post("", {
     // ouath:
@@ -14,14 +14,17 @@ export const actionBackSendMessage = ({ user_id, message, image } = {}) => {
     csId: process.env.REACT_APP_CHAT_TYPE === "agent" && Cookies.get("csId") || "1",
     message: message,
     image: image,
-    user_id: process.env.REACT_APP_CHAT_TYPE === "agent" && user_id,
+    // user_id: process.env.REACT_APP_CHAT_TYPE === "agent" && user_id,
+    user_id: user_id || "1",
+    mem_id: mem_id || "1",
   });
 };
 
-export const actionBackSendImage = (formData) => {
+export const actionBackSendImage = (formData, mem_id) => {
   return chatApiWithoutHeader.post("", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
+      mem_id: mem_id,
     },
   });
 };
